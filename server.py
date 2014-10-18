@@ -23,9 +23,13 @@ def pointsToMeals(points):
 
 @app.route("/results", methods = ["POST"])
 def calculate():
-	
 	mealpoints = request.form['mealpoints']
-	return render_template('results.html',mealPoints = mealpoints ,mealPointsPerDay = mealPointCalculator(int(mealpoints))[0], mealPointsPerWeek = mealPointCalculator(int(mealpoints))[1], meals = pointsToMeals(int(mealpoints)))
+	
+	
+	mealPointsPerDay = mealPointCalculator(int(mealpoints))[0]
+	mealPointsPerWeek = mealPointCalculator(int(mealpoints))[1]
+	meals = pointsToMeals(int(mealpoints))
+	return render_template('results.html',mealPoints = mealpoints ,mealPointsPerDay = mealPointsPerDay, mealPointsPerWeek = mealPointsPerWeek, meals = meals)
 
 
 if __name__ == "__main__":
