@@ -6,28 +6,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
   <body ng-controller="mealPlannerCtrl as planner">
-    <div class="row">
-      <div class="col-sm-3">
-      </div>
-      <div class="col-sm-6 col-xs-12">
-        <h1 align="center">Meal Planner</h1>
-        <hr>
-        <form class="form-inline" action="/results" action="POST">
-          <div ng-repeat="day in planner.days">
-            <strong>[[ day ]]</strong>
-            Breakfast: <input type="checkbox" name="breakfast-[[day]]" checked /> |
-            Lunch: <input type="checkbox" name="lunch-[[day]]" checked /> |
-            Dinner: <input type="checkbox" name="dinner-[[day]]" checked />
-          </div>
-          <input type="text" class="form-control" name="mealpoints" placeholder="Enter your mealpoints"
-          required />
-          <button class="btn btn-default">Calculate!</button>
-        </form>
-        <hr>
-      </div>
-      <div class="col-sm-3">
-      </div>
-    </div>
+    <h1>Meal Planner</h1>
+    <form action="/results" method="POST">
+      <hr>
+      <strong>Weekdays</strong>
+      <ul>
+        <li ng-repeat="day in planner.weekDays">
+          <strong>[[ day ]]</strong>
+          Breakfast: <input type="checkbox" name="[[day]]-breakfast" />
+          Lunch: <input type="checkbox" name="[[day]]-lunch" />
+          Dinner: <input type="checkbox" name="[[day]]-dinner" />
+        </li>
+      </ul>
+      <strong>Weekends</strong>
+      <ul>
+        <li ng-repeat="day in planner.weekEnds">
+          Brunch: <input type="checkbox" name="[[day]]-brunch" />
+          Dinner: <input type="checkbox" name="[[day]]-dinner" />
+        </li>
+      </ul>
+      <input type="text" name="mealpoints" placeholder="Enter your mealpoints" required />
+      <button>Calculate!</button>
+    </form>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script type="text/javascript" src="../static/app.js"></script>
   </body>

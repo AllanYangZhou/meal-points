@@ -6,6 +6,7 @@
     $interpolateProvider.endSymbol(']]');
   });
   app.controller('mealPlannerCtrl', function(){
-    this.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    this.weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    this.weekEnds = ['Saturday', 'Sunday'];
   });
 })();
