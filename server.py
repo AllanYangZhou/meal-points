@@ -28,7 +28,8 @@ def calculate():
 	##print (time.strftime("%d/%m/%Y"))
 	#mealpoint = meal_point_calculator(mealpoint,datetime.today())
 	mealpoints = request.form['mealpoints']
-	return render_template('results.html', mealPoints = mealpoints)
+
+	return render_template('results.html', mealPoints = mealPointCalculator(int(mealpoints)))
 	##return str(mealPointCalculator(request.form['mealPoints']))
 
 if __name__ == "__main__":
