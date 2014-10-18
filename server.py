@@ -19,9 +19,9 @@ def meal_point_calculator(mealpoints, date):
 """Throws back a number"""
 @app.route("/<number>")
 def calculate():
-	## dd/mm/yyyy format
+	# dd/mm/yyyy format
 	print (time.strftime("%d/%m/%Y"))
-	##mealpoint = meal_point_calculator(mealpoint,datetime.today())
+	#mealpoint = meal_point_calculator(mealpoint,datetime.today())
 
 if __name__ == "__main__":
     app.run(debug=True)
