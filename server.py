@@ -6,5 +6,10 @@ app = Flask(__name__)
 def index():
     render_template('index.html')
 
+def 
+
+"""Render home page"""
+
+
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
