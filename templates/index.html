@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="/static/angular.min.js"></script>
-    <script type="text/javascript" src="/static/app.js"></script>
+    <title>Meal Planner</title>
+    <!-- add bootstrap, angular, and javascript files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
   <body>
+    <h1>Meal Planner</h1>
+    <hr>
+    <form action="/results" method="POST">
+      Enter your current meal points: <input type="text" name="mealpoints" required />
+      <input type="submit" value="Enter" />
+    </form>
   </body>
 </html>
