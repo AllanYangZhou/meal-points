@@ -71,6 +71,7 @@ def mealOptimize(pointsToSave, lst):
 	brunches, breakfasts, lunches, dinners = 0, 0, 0, 0
 	countBrunch, countBreakfast, countLunch, countDinner = 0,0,0,0
 	index = 4
+	print(len(lst))
 	if lst[0] == False:
 		brunches +=1
 
@@ -99,8 +100,11 @@ def mealOptimize(pointsToSave, lst):
 		if lst[index] == False:
 			dinners+=1
 		index+=3
+		
 
-	while abs(pointsToSave) >= 3 and (breakfasts > 0 or brunches > 0 or lunches > 0 or dinners> 0):
+	pointsToSave = abs(pointsToSave)
+
+	while pointsToSave >= 0 and (breakfasts > 0 or brunches > 0 or lunches > 0 or dinners> 0):
 		if breakfasts > 0:
 			breakfasts -= 1
 			countBreakfast  +=1
@@ -116,10 +120,11 @@ def mealOptimize(pointsToSave, lst):
 			countLunch +=1
 			pointsToSave -= 7
 
-		elif dinners >0:
+		elif dinners > 0:
 			dinners -= 1
 			countDinner +=1
 			pointsToSave -= 8
+
 
 	return [countBreakfast,countBrunch,countLunch,countDinner]
 
@@ -147,6 +152,7 @@ def calculate():
 	addlist("Tuesday-dinner")
 	addlist("Wednesday-breakfast")
 	addlist("Wednesday-lunch")
+	addlist("Wednesday-dinner")
 	addlist("Thursday-breakfast")
 	addlist("Thursday-lunch")
 	addlist("Thursday-dinner")
@@ -154,7 +160,8 @@ def calculate():
 	addlist("Friday-lunch")
 	addlist("Friday-dinner")
 
-	decision = mealCalculate(int(mealpoints), whichMeals)
+
+	decision = mealCalculate(float(mealpoints), whichMeals)
 
 
 	if decision[1] == None:
