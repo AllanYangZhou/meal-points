@@ -60,11 +60,11 @@ def mealOptimize(points, lst):
                 elif i % 3 == 0:
                     fullcost += 8
                 
-    
+
     if points >= fullcost:
         return (points - fullcost, None, (points-fullcost)/weeks)
     if points < fullcost:
-        return (points - fullcost, points//cost, 0)
+        return (points - fullcost, points//cost, (points-fullcost)/weeks)
 
 @app.route("/results", methods = ["POST"])
 def calculate():
@@ -110,7 +110,8 @@ def calculate():
 		"""Too little meal points"""
 		deficit = decision[0]
 		weeksleft = decision[1]
-		return render_template('deficit.html',current = mealpoints, deficitPoints = abs(deficit), weeksleft = weeksleft)
+		additionPoints = decision[2]
+		return render_template('deficit.html',current = mealpoints, deficitPoints = abs(deficit), weeksleft = weeksleft, additionPoints = abs(additionPoints) )
 
 if __name__ == "__main__":
     app.run(debug=True)
