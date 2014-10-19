@@ -74,7 +74,6 @@ def calculate():
 
 	def addlist(meals):
 		if request.form.get(meals, True) == True:
-			print("check")
 			whichMeals.append(True)
 		else:
 			whichMeals.append(False)
