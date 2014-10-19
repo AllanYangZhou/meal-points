@@ -66,67 +66,7 @@ def mealCalculate(points, lst):
 	if points < fullcost:
 		return (points - fullcost, points//cost, (points-fullcost)/weeks) 
 
-""" def mealOptimize(points, lst, breakfast = True, lunch = True, dinner = True):
-	cost = 0
-	bcost = 6
-	lcost = 7
-	dcost = 8
-	if breakfast == False:
-		bcost = 3.5
-	if lunch == False:
-		lcost = 5
-	if dinner == False:
-		dcost = 6
-	for i in range(4, len(lst)):
-		if lst[i]:
-			if i % 3 == 1:
-				cost += bcost
-			elif i % 3 == 2:
-				cost += lcost
-			elif i % 3 == 0:
-				cost += dcost
-	if lst[0]:
-		cost += lcost
-	if lst[1]:
-		cost += dcost
-	if lst[2]:
-		cost += lcost
-	if lst[3]:
-		cost += dcost
-	daysLeft = date.today()
-	semesterEnd = date(2014, 12, 19)
-	delta = (semesterEnd-daysLeft).days
-	weeks = delta//7
-	fullcost = weeks*cost
-	today = date.weekday(daysLeft)
-	if today != 5:
-		if today == 6:
-			if lst[2]:
-				fullcost += lcost
-			if lst[3]:
-				fullcost += dcost
-			today = 0
-		for i in range(today*3 + 4, len(lst)):
-			if lst[i]:
-				if i % 3 == 1:
-					fullcost += bcost
-				elif i % 3 == 2:
-					fullcost += lcost
-				elif i % 3 == 0:
-					fullcost += dcost
-				
-	
-	if points >= fullcost:
-		return (points - fullcost, None, (points-fullcost)/weeks, (breakfast, lunch, dinner))
-	##if points + .15*points < fullcost:
-	  ##  return (points - fullcost, points//cost, 0, (breakfast, lunch, dinner))
-	elif breakfast == True:
-		return mealOptimize(points, lst, False)
-	elif lunch == True:
-		return mealOptimize(points,lst, False, False)
-	elif dinner == True:
-		return mealOptimize(points,lst, False, False, False)
-	return (points-fullcost, points//cost, 0, (False, False, False))"""
+
 def mealOptimize(pointsToSave, lst):
 	brunches, breakfasts, lunches, dinners = 0, 0, 0, 0
 	countBrunch, countBreakfast, countLunch, countDinner = 0,0,0,0
