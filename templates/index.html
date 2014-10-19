@@ -2,32 +2,41 @@
 <html ng-app="mealPoints">
   <head>
     <title>Meal Planner</title>
-    <!-- add bootstrap, angular, and javascript files -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
   <body ng-controller="mealPlannerCtrl as planner">
-    <h1>Meal Planner</h1>
-    <form action="/results" method="POST">
-      <hr>
-      <strong>Weekdays</strong>
-      <ul>
-        <li ng-repeat="day in planner.weekDays">
-          <strong>[[ day ]]</strong>
-          Breakfast: <input type="checkbox" name="[[day]]-breakfast"/>
-          Lunch: <input type="checkbox" name="[[day]]-lunch" />
-          Dinner: <input type="checkbox" name="[[day]]-dinner" />
-        </li>
-      </ul>
-      <strong>Weekends</strong>
-      <ul>
-        <li ng-repeat="day in planner.weekEnds">
-          Brunch: <input type="checkbox" name="[[day]]-brunch" />
-          Dinner: <input type="checkbox" name="[[day]]-dinner" />
-        </li>
-      </ul>
-      <input type="text" name="mealpoints" placeholder="Enter your mealpoints" required />
-      <button> Calculate!</button>
-    </form>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h1 align="center">Meal Planner</h1>
+            <br />
+            <form action="/results" method="POST">
+              <table class="table">
+                <tr ng-repeat="day in planner.weekDays">
+                  <td><strong>[[ day ]]</strong></td>
+                  <td>Breakfast: <input type="checkbox" name="[[day]]-breakfast" checked /></td>
+                  <td>Lunch: <input type="checkbox" name="[[day]]-lunch" checked /></td>
+                  <td>Dinner: <input type="checkbox" name="[[day]]-dinner" checked /></td>
+                </tr>
+              </table>
+              <table class="table">
+                <tr ng-repeat="day in planner.weekEnds">
+                  <td><strong>[[ day ]]</strong></td>
+                  <td>Brunch: <input type="checkbox" name="[[day]]-brunch" checked /></td>
+                  <td>Dinner: <input type="checkbox" name="[[day]]-dinner" checked /></td>
+                </tr>
+              </table>
+              <input class="form-control" type="text" name="mealpoints" placeholder="Enter your mealpoints" required />
+              <br />
+              <div style="text-align:center;">
+                <button class="btn btn-default">Calculate!</button>
+              </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script type="text/javascript" src="../static/app.js"></script>
   </body>
