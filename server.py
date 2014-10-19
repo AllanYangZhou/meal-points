@@ -59,7 +59,6 @@ def mealOptimize(points, lst):
                     fullcost += 7
                 elif i % 3 == 0:
                     fullcost += 8
-                
 
     if points >= fullcost:
         return (points - fullcost, None, (points-fullcost)/weeks)
@@ -68,50 +67,49 @@ def mealOptimize(points, lst):
 
 @app.route("/results", methods = ["POST"])
 def calculate():
-	mealpoints = request.form['mealpoints']
+    print(request.form)
+    mealpoints = request.form['mealpoints']
+    whichMeals = []    
+    def addlist(meals):
+        if request.form.get(meals, True) == True:
+            whichMeals.append(True)
+        else:
+            whichMeals.append(False)
 
-	whichMeals = []
+    addlist("Saturday-brunch")
+    addlist("Saturday-dinner")
+    addlist("Sunday-brunch")
+    addlist("Sunday-dinner")
+    addlist("Monday-breakfast")
+    addlist("Monday-lunch")
+    addlist("Monday-dinner")
+    addlist("Tuesday-breakfast")
+    addlist("Tuesday-lunch")
+    addlist("Tuesday-dinner")
+    addlist("Wednesday-breakfast")
+    addlist("Wednesday-lunch")
+    addlist("Thursday-breakfast")
+    addlist("Thursday-lunch")
+    addlist("Thursday-dinner")
+    addlist("Friday-breakfast")
+    addlist("Friday-lunch")
+    addlist("Friday-dinner")
 
-	def addlist(meals):
-		if request.form.get(meals, True) == True:
-			whichMeals.append(True)
-		else:
-			whichMeals.append(False)
-
-	addlist("Saturday-brunch")
-	addlist("Saturday-dinner")
-	addlist("Sunday-brunch")
-	addlist("Sunday-dinner")
-	addlist("Monday-breakfast")
-	addlist("Monday-lunch")
-	addlist("Monday-dinner")
-	addlist("Tuesday-breakfast")
-	addlist("Tuesday-lunch")
-	addlist("Tuesday-dinner")
-	addlist("Wednesday-breakfast")
-	addlist("Wednesday-lunch")
-	addlist("Thursday-breakfast")
-	addlist("Thursday-lunch")
-	addlist("Thursday-dinner")
-	addlist("Friday-breakfast")
-	addlist("Friday-lunch")
-	addlist("Friday-dinner")
-
-	decision = mealOptimize(int(mealpoints), whichMeals)
+    decision = mealOptimize(int(mealpoints), whichMeals)
 
 
-	if decision[1] == None:
-		"""Too many meal points"""
-		excess = decision[0]
-		mealPointsPerWeek = decision[2]
-		return render_template('results.html',current = mealpoints, excessPoints = excess, mealPointsPerWeek = mealPointsPerWeek)
+    if decision[1] == None:
+        """Too many meal points"""
+        excess = decision[0]
+        mealPointsPerWeek = decision[2]
+        return render_template('results.html',current = mealpoints, excessPoints = excess, mealPointsPerWeek = mealPointsPerWeek)
 
-	else:
-		"""Too little meal points"""
-		deficit = decision[0]
-		weeksleft = decision[1]
-		additionPoints = decision[2]
-		return render_template('deficit.html',current = mealpoints, deficitPoints = abs(deficit), weeksleft = weeksleft, additionPoints = abs(additionPoints) )
+    else:
+        """Too little meal points"""
+        deficit = decision[0]
+        weeksleft = decision[1]
+        additionPoints = decision[2]
+        return render_template('deficit.html',current = mealpoints, deficitPoints = abs(deficit), weeksleft = weeksleft, additionPoints = abs(additionPoints) )
 
 if __name__ == "__main__":
     app.run(debug=True)

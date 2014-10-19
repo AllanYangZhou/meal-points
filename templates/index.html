@@ -14,18 +14,47 @@
             <br />
             <form action="/results" method="POST">
               <table class="table">
-                <tr ng-repeat="day in planner.weekDays">
-                  <td><strong>[[ day ]]</strong></td>
-                  <td>Breakfast: <input type="checkbox" name="[[day]]-breakfast" checked /></td>
-                  <td>Lunch: <input type="checkbox" name="[[day]]-lunch" checked /></td>
-                  <td>Dinner: <input type="checkbox" name="[[day]]-dinner" checked /></td>
+                <tr>
+                  <td><strong>Monday</strong></td>
+                  <td>Breakfast: <input type="checkbox" ng-model="planner.formData.Mondaybreakfast" /></td>
+                  <td>Lunch: <input type="checkbox" ng-model="planner.formData.Mondaylunch" /></td>
+                  <td>Dinner: <input type="checkbox" ng-model="planner.formData.Mondaydinner" /></td>
+                </tr>
+                <tr>
+                  <td><strong>Tuesday</strong></td>
+                  <td>Breakfast: <input type="checkbox" ng-model="planner.formData.Tuesdaybreakfast" /></td>
+                  <td>Lunch: <input type="checkbox" ng-model="planner.formData.Tuesdaylunch" /></td>
+                  <td>Dinner: <input type="checkbox" ng-model="planner.formData.Tuesdaydinner" /></td>
+                </tr>
+                <tr>
+                  <td><strong>Wednesday</strong></td>
+                  <td>Breakfast: <input type="checkbox" ng-model="planner.formData.Wednesdaybreakfast" /></td>
+                  <td>Lunch: <input type="checkbox" ng-model="planner.formData.Wednesdaylunch" /></td>
+                  <td>Dinner: <input type="checkbox" ng-model="planner.formData.Wednesdaydinner" /></td>
+                </tr>
+                <tr>
+                  <td><strong>Thursday</strong></td>
+                  <td>Breakfast: <input type="checkbox" ng-model="planner.formData.Thursdaybreakfast" /></td>
+                  <td>Lunch: <input type="checkbox" ng-model="planner.formData.Thursdaylunch" /></td>
+                  <td>Dinner: <input type="checkbox" ng-model="planner.formData.Thursdaydinner" /></td>
+                </tr>
+                <tr>
+                  <td><strong>Friday</strong></td>
+                  <td>Breakfast: <input type="checkbox" ng-model="planner.formData.Fridaybreakfast" /></td>
+                  <td>Lunch: <input type="checkbox" ng-model="planner.formData.Fridaylunch" /></td>
+                  <td>Dinner: <input type="checkbox" ng-model="planner.formData.Fridaydinner" /></td>
                 </tr>
               </table>
               <table class="table">
-                <tr ng-repeat="day in planner.weekEnds">
-                  <td><strong>[[ day ]]</strong></td>
-                  <td>Brunch: <input type="checkbox" name="[[day]]-brunch" checked /></td>
-                  <td>Dinner: <input type="checkbox" name="[[day]]-dinner" checked /></td>
+                <tr>
+                  <td><strong>Saturday</strong></td>
+                  <td>Brunch: <input type="checkbox" ng-model="planner.formData.Saturdaybrunch" /></td>
+                  <td>Dinner: <input type="checkbox" ng-model="planner.formData.Saturdaydinner" /></td>
+                </tr>
+                <tr>
+                  <td><strong>Sunday</strong></td>
+                  <td>Brunch: <input type="checkbox" ng-model="planner.formData.Sundaybrunch" /></td>
+                  <td>Dinner: <input type="checkbox" ng-model="planner.formData.Sundaydinner" /></td>
                 </tr>
               </table>
               <input class="form-control" type="text" name="mealpoints" placeholder="Enter your mealpoints" required />
