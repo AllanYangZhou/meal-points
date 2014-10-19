@@ -98,9 +98,7 @@ def calculate():
 	addlist("Friday-dinner")
 
 	decision = mealOptimize(int(mealpoints), whichMeals)
-	print(int(mealpoints))
-	print(whichMeals)
-	print(decision)
+
 
 	if decision[1] == None:
 		"""Too many meal points"""
