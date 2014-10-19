@@ -12,7 +12,7 @@
         <div class="col-md-6">
             <h1 align="center">Meal Planner</h1>
             <br />
-            <form action="/results" method="POST">
+            <form>
               <table class="table">
                 <tr>
                   <td><strong>Monday</strong></td>
@@ -57,16 +57,18 @@
                   <td>Dinner: <input type="checkbox" ng-model="planner.formData.Sundaydinner" /></td>
                 </tr>
               </table>
-              <input class="form-control" type="text" name="mealpoints" placeholder="Enter your mealpoints" required />
+              <input class="form-control" type="text" ng-model="planner.formData.mealpoints" placeholder="Enter your mealpoints" required />
               <br />
               <div style="text-align:center;">
-                <button class="btn btn-default">Calculate!</button>
+                <button class="btn btn-default" ng-click="planner.sendData()">Calculate!</button>
               </div>
             </form>
         </div>
         <div class="col-md-3"></div>
       </div>
     </div>
+    <div class="container" ng-include="planner.hasResults && '../static/results.html'"></div>
+    <div class="container" ng-include="planner.hasDeficit && '../static/deficit.html'"></div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script type="text/javascript" src="../static/app.js"></script>
   </body>

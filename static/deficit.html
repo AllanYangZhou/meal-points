@@ -1,19 +1,21 @@
 <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-6">
-    <h1 align="center">Meal Planner</h1>
+    <h1 align="center">Meal Planners</h1>
     <br />
     <table class="table">
       <tr>
         <td><h3 align="center">Current mealpoints:</h3></td>
-        <td><h3> {{ current }} </h3></td></tr>
-      <tr>
-        <td><h3 align="center">Deficit:</h3></td>
-        <td><h3>{{ deficitPoints }}</h3></td>
+        <td><h3> [[ planner.currentPts ]] </h3></td>
       </tr>
       <tr>
-        <td><h3 align="center">Weeks left: </h3></td>
-        <td><h3>{{weeksLeft}}</h3></td>
+        <td><h3 align="center">Deficit:</h3></td>
+        <td><h3>[[ planner.deficitPts ]]</h3></td>
+      </tr>
+      <tr>
+        <td><h3 align="center"> Weeks left: </h3></td>
+        <td><h3> [[ planner.weeksLeft ]] </h3></td>
+      </tr>
     </table>
   </div>
   <div class="col-md-3"></div>
